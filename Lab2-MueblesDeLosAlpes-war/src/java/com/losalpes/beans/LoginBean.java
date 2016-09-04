@@ -82,11 +82,11 @@ public class LoginBean
             Usuario user = servicio.login(usuario, contraseña);
             if (user.getTipo() == TipoUsuario.ADMINISTRADOR)
             {
-                return "catalogo.xhtml";
+                return "admin";
             }
             else
             {
-                return "";
+                return "client";
             }
         }
         catch (AutenticacionException ex)
@@ -94,7 +94,7 @@ public class LoginBean
             error=true;
             FacesMessage mensaje=new FacesMessage(FacesMessage.SEVERITY_ERROR,ex.getMessage(),"");
             FacesContext.getCurrentInstance().addMessage("", mensaje);
-            return "";
+            return ex.getMessage();
         }
     }
 
