@@ -89,8 +89,8 @@ public class ClienteBean
      */
     public void agregarCliente()
     {
-        cliente=new Cliente();
         gestion.agregarCliente(cliente);
+        cliente=new Cliente();
         
     }
 

@@ -73,7 +73,7 @@
                     <h:inputText id="TxtEmail"
                                    maxlength="20"
                                    size="20"
-                                   value="#{clienteBean.cliente.nombre}"
+                                   value="#{clienteBean.cliente.email}"
                                    label="Email"
                                    required="true">
                         <f:validateLength minimum="1"/>
@@ -83,6 +83,8 @@
                 
 
                 <h:commandButton value="Agregar" action="#{clienteBean.agregarCliente}" />
+                <h:commandButton value="Actualizar" />
+                <h:commandButton value="Eliminar" />
                 <h:commandButton value="Limpiar" action="#{clienteBean.limpiar}" />
             </h:panelGroup>
             
@@ -100,7 +102,7 @@
                     paginator="true"
                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                     resizableColumns="true"
-                    rows="5">
+                    rows="11">
 
                     <p:column headerText="TipoDocumento">
                         <h:outputText value="#{file.tipoDocumento}" />
@@ -114,8 +116,32 @@
                         <h:outputText value="#{file.nombre}" />
                     </p:column>
                     
+                    <p:column headerText="TelefonoCasa">
+                        <h:outputText value="#{file.telefonoCasa}" />
+                    </p:column>
+                    
+                    <p:column headerText="TelefonoCelular">
+                        <h:outputText value="#{file.telefonoCelular}" />
+                    </p:column>
+                    
                     <p:column headerText="Direccion">
                         <h:outputText value="#{file.direccion}" />
+                    </p:column>
+                    
+                    <p:column headerText="Ciudad">
+                        <h:outputText value="#{file.ciudad}" />
+                    </p:column>
+                    
+                    <p:column headerText="Departamento">
+                        <h:outputText value="#{file.departamento}" />
+                    </p:column>
+                    
+                    <p:column headerText="Pais">
+                        <h:outputText value="#{file.pais}" />
+                    </p:column>
+                    
+                    <p:column headerText="Profesion">
+                        <h:outputText value="#{file.profesion}" />
                     </p:column>
                     
                     <p:column headerText="Email">
