@@ -16,181 +16,186 @@
 
             <p:panelGrid columns="4" style="margin-bottom: 20px; margin-top: 15px">
                     
-                    <f:facet name="header">  
-                        Información del Cliente  
-                   </f:facet>
-                    
-                    <h:outputLabel for="numero" value="Tipo Docuemtno" />
-                    <h:selectOneMenu value="#{clienteBean.cliente.tipoDocumento}">
-                        <f:selectItems value="#{clienteBean.tiposDocumentos}" />
-                    </h:selectOneMenu>
-                    
-                    <h:outputLabel for="numero" value="Número Docuemtno" />
-                    <p:inputText id="numero" required="true" maxlength="20" value="#{clienteBean.cliente.numeroDocumento}" />
+                <f:facet name="header">  
+                    Información del Cliente  
+                </f:facet>
 
-                    <h:outputLabel for="nombre" value="Nombre" />
-                    <p:inputText id="nombre" required="true" value="#{clienteBean.cliente.nombre}" />
-                    
-                    <h:outputLabel for="telefonoCasa" value="Telefono Casa" />
-                    <p:inputText id="telefonoCasa" required="true" value="#{clienteBean.cliente.telefonoCasa}" />
-                    
-                    <h:outputLabel for="telefonoCelular" value="Telefono Celular" />
-                    <p:inputText id="telefonoCelular" required="true" value="#{clienteBean.cliente.telefonoCelular}" />
-                    
-                    <h:outputLabel for="direccion" value="Dirección" />
-                    <p:inputText id="direccion" required="true" value="#{clienteBean.cliente.direccion}" />
-                    
-                    <h:outputLabel for="ciudad" value="Ciudad" />
-                    <p:inputText id="ciudad" required="true" value="#{clienteBean.cliente.ciudad}" />
-                    
-                    <h:outputLabel for="departamento" value="Departamento" />
-                    <p:inputText id="departamento" required="true" value="#{clienteBean.cliente.departamento}" />
-                    
-                    <h:outputLabel for="pais" value="Pais" />
-                    <p:inputText id="pais" required="true" value="#{clienteBean.cliente.pais}" />
-                    
-                    <h:outputLabel for="profesion" value="Profesión" />
-                    <p:inputText id="profesion" required="true" value="#{clienteBean.cliente.profesion}" />
-                    
-                    <h:outputLabel for="email" value="Email" />
-                    <p:inputText id="email" required="true" value="#{clienteBean.cliente.email}" />
+                <h:outputLabel for="numero" value="Tipo Docuemtno" />
+                <h:selectOneMenu value="#{clienteBean.cliente.tipoDocumento}">
+                    <f:selectItems value="#{clienteBean.tiposDocumentos}" />
+                </h:selectOneMenu>
 
-                    <p:commandButton action="#{clienteBean.agregarCliente}" update="mydata"
-                        value="Guardar" icon="ui-icon-check" style="margin:0" />
-                    
-                    <p:commandButton action="#{clienteBean.limpiar}" update="mydata"
-                        value="Limpiar" icon="ui-icon-check" style="margin:0" />
+                <h:outputLabel for="numero" value="Número Docuemtno" />
+                <p:inputText id="numero" required="true" maxlength="20" value="#{clienteBean.cliente.numeroDocumento}" />
 
-                </p:panelGrid>
+                <h:outputLabel for="nombre" value="Nombre" />
+                <p:inputText id="nombre" required="true" value="#{clienteBean.cliente.nombre}" />
+
+                <h:outputLabel for="telefonoCasa" value="Telefono Casa" />
+                <p:inputText id="telefonoCasa" required="true" value="#{clienteBean.cliente.telefonoCasa}" />
+
+                <h:outputLabel for="telefonoCelular" value="Telefono Celular" />
+                <p:inputText id="telefonoCelular" required="true" value="#{clienteBean.cliente.telefonoCelular}" />
+
+                <h:outputLabel for="direccion" value="Dirección" />
+                <p:inputText id="direccion" required="true" value="#{clienteBean.cliente.direccion}" />
+
+                <h:outputLabel for="ciudad" value="Ciudad" />
+                <p:inputText id="ciudad" required="true" value="#{clienteBean.cliente.ciudad}" />
+
+                <h:outputLabel for="departamento" value="Departamento" />
+                <p:inputText id="departamento" required="true" value="#{clienteBean.cliente.departamento}" />
+
+                <h:outputLabel for="pais" value="Pais" />
+                <p:inputText id="pais" required="true" value="#{clienteBean.cliente.pais}" />
+
+                <h:outputLabel for="profesion" value="Profesión" />
+                <p:inputText id="profesion" required="true" value="#{clienteBean.cliente.profesion}" />
+
+                <h:outputLabel for="email" value="Email" />
+                <p:inputText id="email" required="true" value="#{clienteBean.cliente.email}" />
+
+            </p:panelGrid>
             
-                <!-- Se crea una tabla donde se presentan los clientes del sistema -->
-                <p:dataTable value="#{clienteBean.clientes}" var="file" id="mydata">
- 
-                    <p:column headerText="Tipo Documento">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{file.tipoDocumento}" />
-                            </f:facet>
-                            <f:facet name="input">
-                                <h:inputText value="#{file.tipoDocumento}" />
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    
-                    <p:column headerText="Número Documento" sortBy="#{file.numeroDocumento}">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{file.numeroDocumento}" />
-                            </f:facet>
-                            <f:facet name="input">
-                                <h:inputText value="#{file.numeroDocumento}" />
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    
-                    <p:column headerText="Nombre">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{file.nombre}" />
-                            </f:facet>
-                            <f:facet name="input">
-                                <h:inputText value="#{file.nombre}" />
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    
-                    <p:column headerText="Telefono Casa">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{file.telefonoCasa}" />
-                            </f:facet>
-                            <f:facet name="input">
-                                <h:inputText value="#{file.telefonoCasa}" />
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    
-                    <p:column headerText="Telefono Celular">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{file.telefonoCelular}" />
-                            </f:facet>
-                            <f:facet name="input">
-                                <h:inputText value="#{file.telefonoCelular}" />
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    
-                    <p:column headerText="Direccion">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{file.direccion}" />
-                            </f:facet>
-                            <f:facet name="input">
-                                <h:inputText value="#{file.direccion}" />
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    
-                    <p:column headerText="Ciudad">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{file.ciudad}" />
-                            </f:facet>
-                            <f:facet name="input">
-                                <h:inputText value="#{file.ciudad}" />
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    
-                    <p:column headerText="Departamento">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{file.departamento}" />
-                            </f:facet>
-                            <f:facet name="input">
-                                <h:inputText value="#{file.departamento}" />
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    
-                    <p:column headerText="Pais">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{file.pais}" />
-                            </f:facet>
-                            <f:facet name="input">
-                                <h:inputText value="#{file.pais}" />
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    
-                    <p:column headerText="Profesion">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{file.profesion}" />
-                            </f:facet>
-                            <f:facet name="input">
-                                <h:inputText value="#{file.profesion}" />
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    
-                    <p:column headerText="Email">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{file.email}" />
-                            </f:facet>
-                            <f:facet name="input">
-                                <h:inputText value="#{file.email}" />
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    
-                    <p:column headerText="Opciones" style="width:50px">
-                        <p:rowEditor />
-                    </p:column>
-                </p:dataTable>
+            <p:panelGrid columns="2" style="margin-bottom: 10px; margin-top: 15px">
+                
+                <p:commandButton action="#{clienteBean.agregarCliente}" update="mydata"
+                    value="Guardar" style="margin:0" />
+
+                <p:commandButton action="#{clienteBean.limpiar}" update="mydata"
+                    value="Limpiar" style="margin:0" />
+
+            </p:panelGrid>
+
+            <!-- Se crea una tabla donde se presentan los clientes del sistema -->
+            <p:dataTable value="#{clienteBean.clientes}" var="file" id="mydata"
+                         editable="true" editMode="cell">
+
+                <p:column headerText="Tipo Documento">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{file.tipoDocumento}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:inputText value="#{file.tipoDocumento}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Número Documento" sortBy="#{file.numeroDocumento}">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{file.numeroDocumento}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:inputText value="#{file.numeroDocumento}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Nombre">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{file.nombre}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:inputText value="#{file.nombre}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Telefono Casa">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{file.telefonoCasa}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:inputText value="#{file.telefonoCasa}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Telefono Celular">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{file.telefonoCelular}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:inputText value="#{file.telefonoCelular}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Direccion">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{file.direccion}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:inputText value="#{file.direccion}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Ciudad">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{file.ciudad}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:inputText value="#{file.ciudad}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Departamento">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{file.departamento}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:inputText value="#{file.departamento}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Pais">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{file.pais}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:inputText value="#{file.pais}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Profesion">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{file.profesion}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:inputText value="#{file.profesion}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Email">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{file.email}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:inputText value="#{file.email}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Opciones" styleClass="ui-editable-column-options" style="width:45px">  
+                    <p:rowEditor/>
+                 </p:column> 
+            </p:dataTable>
 
         </h:form>
 
