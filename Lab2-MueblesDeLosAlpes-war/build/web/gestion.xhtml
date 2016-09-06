@@ -14,234 +14,182 @@
     <ui:define name="body">
         <h:form>
 
-            <!-- Panel para agregar un nuevo cliente -->
-            <h:panelGroup>
-                
-                <div style="overflow: hidden; width: 100%">
-                
-                    <div style="float: left; width: 45%">  
-                        <h:panelGrid>
-                            <h:selectOneMenu value="#{clienteBean.cliente.tipoDocumento}">
-                                <f:selectItems value="#{clienteBean.tiposDocumentos}" />
-                            </h:selectOneMenu>
-                        </h:panelGrid>
-
-                        <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
-                            <h:outputLabel for="TxtNumDocumento"
-                                             value="Numero Documento"/>
-                            <h:inputText id="TxtNumDocumento"
-                                           size="20"
-                                           maxlength="20"
-                                           label="Numero Documento"
-                                           value="#{clienteBean.cliente.numeroDocumento}"
-                                           required="true"
-                                           >
-                                <f:validateLength minimum="1"/>
-                            </h:inputText>
-                            <h:message id="nameMsg" for="TxtNumDocumento" />
-                        </h:panelGrid>
-
-                        <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
-                            <h:outputLabel for="TxtNombre"
-                                             value="Nombre" />
-                            <h:inputText id="TxtNombre"
-                                           maxlength="20"
-                                           size="20"
-                                           value="#{clienteBean.cliente.nombre}"
-                                           label="Nombre"
-                                           required="true">
-                                <f:validateLength minimum="1"/>
-                            </h:inputText>
-                            <h:message id="pwMsg" for="TxtNombre" />
-                        </h:panelGrid>
-
-                        <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
-                            <h:outputLabel for="TxtTelefonoCasa"
-                                             value="Telefono Casa" />
-                            <h:inputText id="TxtTelefonoCasa"
-                                           maxlength="20"
-                                           size="20"
-                                           value="#{clienteBean.cliente.telefonoCasa}"
-                                           label="Telefono Casa"
-                                           required="true">
-                                <f:validateLength minimum="1"/>
-                            </h:inputText>
-                            <h:message id="pwTxtTelefonoCasa" for="TxtTelefonoCasa" />
-                        </h:panelGrid>
-
-                        <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
-                            <h:outputLabel for="TxtTelefonoCelular"
-                                             value="Telefono Celular" />
-                            <h:inputText id="TxtTelefonoCelular"
-                                           maxlength="20"
-                                           size="20"
-                                           value="#{clienteBean.cliente.telefonoCelular}"
-                                           label="Telefono Celular"
-                                           required="true">
-                                <f:validateLength minimum="1"/>
-                            </h:inputText>
-                            <h:message id="pwTxtTelefonoCelular" for="TxtTelefonoCelular" />
-                        </h:panelGrid>
-
-                        <h:panelGrid columns="1" width="100px"
-                                       columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
-
-                            <h:outputLabel for="TxtDireccion" value="Direccion" />
-                            <h:inputTextarea id="TxtDireccion"
-                                             value="#{clienteBean.cliente.direccion}"
-                                               rows="4" style="width: 125px"
-                                               label="Direccion"
-                                               >
-                                <f:validateLength minimum="1"/>
-
-                            </h:inputTextarea>
-                            <h:message id="descDireccion" for="TxtDireccion" />
-
-                        </h:panelGrid>
-                    </div>
-                    <div style="float: right; width: 45%">  
-                        <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
-                            <h:outputLabel for="TxtCiudad"
-                                             value="Ciudad" />
-                            <h:inputText id="TxtCiudad"
-                                           maxlength="20"
-                                           size="20"
-                                           value="#{clienteBean.cliente.ciudad}"
-                                           label="Ciudad"
-                                           required="true">
-                                <f:validateLength minimum="1"/>
-                            </h:inputText>
-                            <h:message id="pwTxtCiudad" for="TxtCiudad" />
-                        </h:panelGrid>
-
-                        <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
-                            <h:outputLabel for="TxtDepartamento"
-                                             value="Departamento" />
-                            <h:inputText id="TxtDepartamento"
-                                           maxlength="20"
-                                           size="20"
-                                           value="#{clienteBean.cliente.departamento}"
-                                           label="Departamento"
-                                           required="true">
-                                <f:validateLength minimum="1"/>
-                            </h:inputText>
-                            <h:message id="pwTxtDepartamento" for="TxtDepartamento" />
-                        </h:panelGrid>
-
-                        <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
-                            <h:outputLabel for="TxtPais"
-                                             value="Pais" />
-                            <h:inputText id="TxtPais"
-                                           maxlength="20"
-                                           size="20"
-                                           value="#{clienteBean.cliente.pais}"
-                                           label="Pais"
-                                           required="true">
-                                <f:validateLength minimum="1"/>
-                            </h:inputText>
-                            <h:message id="pwTxtPais" for="TxtPais" />
-                        </h:panelGrid>
-
-                        <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
-                            <h:outputLabel for="TxtProfesion"
-                                             value="Profesion" />
-                            <h:inputText id="TxtProfesion"
-                                           maxlength="20"
-                                           size="20"
-                                           value="#{clienteBean.cliente.profesion}"
-                                           label="Profesion"
-                                           required="true">
-                                <f:validateLength minimum="1"/>
-                            </h:inputText>
-                            <h:message id="pwTxtProfesion" for="TxtProfesion" />
-                        </h:panelGrid>
-
-                        <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
-                            <h:outputLabel for="TxtEmail"
-                                             value="Email" />
-                            <h:inputText id="TxtEmail"
-                                           maxlength="20"
-                                           size="20"
-                                           value="#{clienteBean.cliente.email}"
-                                           label="Email"
-                                           required="true">
-                                <f:validateLength minimum="1"/>
-                            </h:inputText>
-                            <h:message id="pwEmail" for="TxtEmail" />
-                        </h:panelGrid>
-                    </div>
-                
-                </div>
-                
-                
-                
-
-                <h:commandButton value="Agregar" action="#{clienteBean.agregarCliente}" />
-                <h:commandButton value="Actualizar" action="#{clienteBean.actualizar}" />
-                <h:commandButton value="Eliminar" action="#{clienteBean.eliminar}" />
-                <h:commandButton value="Limpiar" action="#{clienteBean.limpiar}" />
-            </h:panelGroup>
-            
-        </h:form>
-        <h:form>
-            
-
-                <!-- Se crea una tabla donde se presentan los clientes del sistema -->
-                <p:dataTable
-                    id="data"
-                    value="#{clienteBean.clientes}"
-                    var="file"
-                    scrollable="false"
-                    scrollHeight="100px"
-                    paginator="true"
-                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                    resizableColumns="true"
-                    rows="11">
-
-                    <p:column headerText="TipoDocumento">
-                        <h:outputText value="#{file.tipoDocumento}" />
-                    </p:column>       
+                <p:panelGrid columns="4">
                     
-                    <p:column headerText="NumeroDocumento" sortBy="#{file.numeroDocumento}">
-                        <h:outputText value="#{file.numeroDocumento}" />
+                    <f:facet name="header">  
+                        Información del Cliente  
+                   </f:facet>
+                    
+                    <h:outputLabel for="numero" value="Tipo Docuemtno" />
+                    <h:selectOneMenu value="#{clienteBean.cliente.tipoDocumento}">
+                        <f:selectItems value="#{clienteBean.tiposDocumentos}" />
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel for="numero" value="Número Docuemtno" />
+                    <p:inputText id="numero" required="true" maxlength="20" value="#{clienteBean.cliente.numeroDocumento}" />
+
+                    <h:outputLabel for="nombre" value="Nombre" />
+                    <p:inputText id="nombre" required="true" value="#{clienteBean.cliente.nombre}" />
+                    
+                    <h:outputLabel for="telefonoCasa" value="Telefono Casa" />
+                    <p:inputText id="telefonoCasa" required="true" value="#{clienteBean.cliente.telefonoCasa}" />
+                    
+                    <h:outputLabel for="telefonoCelular" value="Telefono Celular" />
+                    <p:inputText id="telefonoCelular" required="true" value="#{clienteBean.cliente.telefonoCelular}" />
+                    
+                    <h:outputLabel for="direccion" value="Dirección" />
+                    <p:inputText id="direccion" required="true" value="#{clienteBean.cliente.direccion}" />
+                    
+                    <h:outputLabel for="ciudad" value="Ciudad" />
+                    <p:inputText id="ciudad" required="true" value="#{clienteBean.cliente.ciudad}" />
+                    
+                    <h:outputLabel for="departamento" value="Departamento" />
+                    <p:inputText id="departamento" required="true" value="#{clienteBean.cliente.departamento}" />
+                    
+                    <h:outputLabel for="pais" value="Pais" />
+                    <p:inputText id="pais" required="true" value="#{clienteBean.cliente.pais}" />
+                    
+                    <h:outputLabel for="profesion" value="Profesión" />
+                    <p:inputText id="profesion" required="true" value="#{clienteBean.cliente.profesion}" />
+                    
+                    <h:outputLabel for="email" value="Email" />
+                    <p:inputText id="email" required="true" value="#{clienteBean.cliente.email}" />
+
+                    <p:commandButton action="#{clienteBean.agregarCliente}" update="mydata"
+                        value="Guardar" icon="ui-icon-check" style="margin:0" />
+                    
+                    <p:commandButton action="#{clienteBean.limpiar}" update="mydata"
+                        value="Limpiar" icon="ui-icon-check" style="margin:0" />
+
+                </p:panelGrid>
+            
+                <!-- Se crea una tabla donde se presentan los clientes del sistema -->
+                <p:dataTable value="#{clienteBean.cacheList}" var="file" id="mydata">
+ 
+                    <p:column headerText="Tipo Documento">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{file.tipoDocumento}" />
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:inputText value="#{file.tipoDocumento}" />
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    
+                    <p:column headerText="Número Documento" sortBy="#{file.numeroDocumento}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{file.numeroDocumento}" />
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:inputText value="#{file.numeroDocumento}" />
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
                     
                     <p:column headerText="Nombre">
-                        <h:outputText value="#{file.nombre}" />
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{file.nombre}" />
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:inputText value="#{file.nombre}" />
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
                     
-                    <p:column headerText="TelefonoCasa">
-                        <h:outputText value="#{file.telefonoCasa}" />
+                    <p:column headerText="Telefono Casa">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{file.telefonoCasa}" />
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:inputText value="#{file.telefonoCasa}" />
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
                     
-                    <p:column headerText="TelefonoCelular">
-                        <h:outputText value="#{file.telefonoCelular}" />
+                    <p:column headerText="Telefono Celular">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{file.telefonoCelular}" />
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:inputText value="#{file.telefonoCelular}" />
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
                     
                     <p:column headerText="Direccion">
-                        <h:outputText value="#{file.direccion}" />
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{file.direccion}" />
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:inputText value="#{file.direccion}" />
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
                     
                     <p:column headerText="Ciudad">
-                        <h:outputText value="#{file.ciudad}" />
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{file.ciudad}" />
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:inputText value="#{file.ciudad}" />
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
                     
                     <p:column headerText="Departamento">
-                        <h:outputText value="#{file.departamento}" />
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{file.departamento}" />
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:inputText value="#{file.departamento}" />
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
                     
                     <p:column headerText="Pais">
-                        <h:outputText value="#{file.pais}" />
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{file.pais}" />
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:inputText value="#{file.pais}" />
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
                     
                     <p:column headerText="Profesion">
-                        <h:outputText value="#{file.profesion}" />
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{file.profesion}" />
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:inputText value="#{file.profesion}" />
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
                     
                     <p:column headerText="Email">
-                        <h:outputText value="#{file.email}" />
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{file.email}" />
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:inputText value="#{file.email}" />
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
                     
+                    <p:column headerText="Opciones" style="width:50px">
+                        <p:rowEditor />
+                    </p:column>
                 </p:dataTable>
 
         </h:form>

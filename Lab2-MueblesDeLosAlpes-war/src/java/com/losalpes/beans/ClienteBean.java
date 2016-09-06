@@ -16,6 +16,7 @@ import com.losalpes.bos.Cliente;
 import com.losalpes.bos.TipoDocumento;
 import com.losalpes.servicios.IServicioGestion;
 import com.losalpes.servicios.ServicioGestionMock;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.model.SelectItem;
@@ -37,14 +38,14 @@ public class ClienteBean
      * Representa un nuevo cliente a ingresar
      */
     private Cliente cliente;
-
     
-
     /**
      * Relación con la interfaz que provee los servicios necesarios del catálogo.
      */
     private IServicioGestion gestion;
-
+    
+    ArrayList  cacheList;
+    
     //-----------------------------------------------------------
     // Constructor
     //-----------------------------------------------------------
@@ -76,7 +77,10 @@ public class ClienteBean
      */
     public List<Cliente> getClientes()
     {
-
+        return gestion.darClientes();
+    }
+    
+    public List getCacheList() {
         return gestion.darClientes();
     }
 
@@ -90,16 +94,8 @@ public class ClienteBean
     public void agregarCliente()
     {
         gestion.agregarCliente(cliente);
-        cliente=new Cliente();
-        
-    }
-
-    /**
-     * actualiza la información de un cliente
-     */
-    public void actualizar()
-    {
         //cliente=new Cliente();
+        
     }
     
     /**
@@ -107,7 +103,7 @@ public class ClienteBean
      */
     public void eliminar()
     {
-        //cliente=new Cliente();
+        gestion.eliminarCliente(cliente);
     }
     
     /**
@@ -116,6 +112,12 @@ public class ClienteBean
     public void limpiar()
     {
         cliente=new Cliente();
+    }
+    
+    public void clear() {
+          
+        cacheList.clear();
+     
     }
 
     /**
@@ -133,5 +135,4 @@ public class ClienteBean
         }
         return sitems;
     }
-
 }

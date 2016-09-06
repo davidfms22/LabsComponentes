@@ -93,6 +93,21 @@ public class Cliente
      * @param tipoDocumento Tipo de documento
      * @param numeroDocumento Numero del documento
      * @param nombre Nombre completo del cliente
+     * @param email Direccion correo electronico
+     */
+    public Cliente(TipoDocumento tipoDocumento, Long numeroDocumento, String nombre, String email)
+    {
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
+        this.nombre = nombre;
+        this.email = email;
+    }
+    
+    /**
+     * Constructor de la clase. Inicializa los atributos con los valores que ingresan por parametro.
+     * @param tipoDocumento Tipo de documento
+     * @param numeroDocumento Numero del documento
+     * @param nombre Nombre completo del cliente
      * @param telefonoCasa Numero telefono residencia
      * @param telefonoCelular Numero telefono celular
      * @param direccion Dirección de residencia

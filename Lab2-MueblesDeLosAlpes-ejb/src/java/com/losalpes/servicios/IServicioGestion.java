@@ -26,6 +26,12 @@ public interface IServicioGestion
      * @param cliente Nuevo cliente
      */
     public void agregarCliente(Cliente cliente);
+    
+    /**
+     * elimina un cliente al sistema
+     * @param cliente cliente eliminado
+     */
+    public void eliminarCliente(Cliente cliente);
 
     /**
      * Devuelve todos los clientes del sistema
