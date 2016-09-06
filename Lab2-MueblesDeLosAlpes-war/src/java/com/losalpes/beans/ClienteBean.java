@@ -95,6 +95,22 @@ public class ClienteBean
     }
 
     /**
+     * actualiza la información de un cliente
+     */
+    public void actualizar()
+    {
+        //cliente=new Cliente();
+    }
+    
+    /**
+     * Elimina un cliente del sistema
+     */
+    public void eliminar()
+    {
+        //cliente=new Cliente();
+    }
+    
+    /**
      * Elimina la información del cliente
      */
     public void limpiar()

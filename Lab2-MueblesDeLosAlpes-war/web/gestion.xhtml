@@ -24,7 +24,7 @@
                 
                 <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
                     <h:outputLabel for="TxtNumDocumento"
-                                     value="NumDocumento"/>
+                                     value="Numero Documento"/>
                     <h:inputText id="TxtNumDocumento"
                                    size="20"
                                    maxlength="20"
@@ -50,6 +50,34 @@
                     </h:inputText>
                     <h:message id="pwMsg" for="TxtNombre" />
                 </h:panelGrid>
+                
+                <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
+                    <h:outputLabel for="TxtTelefonoCasa"
+                                     value="Telefono Casa" />
+                    <h:inputText id="TxtTelefonoCasa"
+                                   maxlength="20"
+                                   size="20"
+                                   value="#{clienteBean.cliente.telefonoCasa}"
+                                   label="Telefono Casa"
+                                   required="true">
+                        <f:validateLength minimum="1"/>
+                    </h:inputText>
+                    <h:message id="pwTxtTelefonoCasa" for="TxtTelefonoCasa" />
+                </h:panelGrid>
+                
+                <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
+                    <h:outputLabel for="TxtTelefonoCelular"
+                                     value="Telefono Celular" />
+                    <h:inputText id="TxtTelefonoCelular"
+                                   maxlength="20"
+                                   size="20"
+                                   value="#{clienteBean.cliente.telefonoCelular}"
+                                   label="Telefono Celular"
+                                   required="true">
+                        <f:validateLength minimum="1"/>
+                    </h:inputText>
+                    <h:message id="pwTxtTelefonoCelular" for="TxtTelefonoCelular" />
+                </h:panelGrid>
 
                 <h:panelGrid columns="1" width="100px"
                                columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
@@ -68,6 +96,62 @@
                 </h:panelGrid>
                 
                 <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
+                    <h:outputLabel for="TxtCiudad"
+                                     value="Ciudad" />
+                    <h:inputText id="TxtCiudad"
+                                   maxlength="20"
+                                   size="20"
+                                   value="#{clienteBean.cliente.ciudad}"
+                                   label="Ciudad"
+                                   required="true">
+                        <f:validateLength minimum="1"/>
+                    </h:inputText>
+                    <h:message id="pwTxtCiudad" for="TxtCiudad" />
+                </h:panelGrid>
+                
+                <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
+                    <h:outputLabel for="TxtDepartamento"
+                                     value="Departamento" />
+                    <h:inputText id="TxtDepartamento"
+                                   maxlength="20"
+                                   size="20"
+                                   value="#{clienteBean.cliente.departamento}"
+                                   label="Departamento"
+                                   required="true">
+                        <f:validateLength minimum="1"/>
+                    </h:inputText>
+                    <h:message id="pwTxtDepartamento" for="TxtDepartamento" />
+                </h:panelGrid>
+                
+                <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
+                    <h:outputLabel for="TxtPais"
+                                     value="Pais" />
+                    <h:inputText id="TxtPais"
+                                   maxlength="20"
+                                   size="20"
+                                   value="#{clienteBean.cliente.pais}"
+                                   label="Pais"
+                                   required="true">
+                        <f:validateLength minimum="1"/>
+                    </h:inputText>
+                    <h:message id="pwTxtPais" for="TxtPais" />
+                </h:panelGrid>
+                
+                <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
+                    <h:outputLabel for="TxtProfesion"
+                                     value="Profesion" />
+                    <h:inputText id="TxtProfesion"
+                                   maxlength="20"
+                                   size="20"
+                                   value="#{clienteBean.cliente.profesion}"
+                                   label="Profesion"
+                                   required="true">
+                        <f:validateLength minimum="1"/>
+                    </h:inputText>
+                    <h:message id="pwTxtProfesion" for="TxtProfesion" />
+                </h:panelGrid>
+                
+                <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
                     <h:outputLabel for="TxtEmail"
                                      value="Email" />
                     <h:inputText id="TxtEmail"
@@ -83,8 +167,8 @@
                 
 
                 <h:commandButton value="Agregar" action="#{clienteBean.agregarCliente}" />
-                <h:commandButton value="Actualizar" />
-                <h:commandButton value="Eliminar" />
+                <h:commandButton value="Actualizar" action="#{clienteBean.actualizar}" />
+                <h:commandButton value="Eliminar" action="#{clienteBean.eliminar}" />
                 <h:commandButton value="Limpiar" action="#{clienteBean.limpiar}" />
             </h:panelGroup>
             
