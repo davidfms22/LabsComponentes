@@ -14,7 +14,7 @@
     <ui:define name="body">
         <h:form>
 
-                <p:panelGrid columns="4">
+            <p:panelGrid columns="4" style="margin-bottom: 20px; margin-top: 15px">
                     
                     <f:facet name="header">  
                         Información del Cliente  
@@ -64,7 +64,7 @@
                 </p:panelGrid>
             
                 <!-- Se crea una tabla donde se presentan los clientes del sistema -->
-                <p:dataTable value="#{clienteBean.cacheList}" var="file" id="mydata">
+                <p:dataTable value="#{clienteBean.clientes}" var="file" id="mydata">
  
                     <p:column headerText="Tipo Documento">
                         <p:cellEditor>

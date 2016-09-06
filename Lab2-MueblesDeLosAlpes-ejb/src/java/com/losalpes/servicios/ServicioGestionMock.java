@@ -43,28 +43,28 @@ public class ServicioGestionMock implements IServicioGestion
     /**
      * Constructor sin argumentos de la clase
      */
-//    public ServicioGestionMock()
-//    {
-//
-//        //Inicializa el arreglo de los clientes
-//        clientes = new ArrayList<Cliente>();
-//
-//        //Agrega los clientes del sistema
-//        clientes.add(new Cliente(TipoDocumento.Cedula, (long)1115855, "David Martinez Salcedo", (long)6373383, (long)313318788, "Kr 54 # 169-84", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "david@gmail.com"));
-//        clientes.add(new Cliente(TipoDocumento.Cedula, (long)1234567, "Alvaro Cordoba Torres", (long)6379854, (long)301318788, "Calle 170 # 84 - 25", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "alvaro@gmail.com"));
-//        clientes.add(new Cliente(TipoDocumento.Tarjeta, (long)876543, "Jheison Rodriguez", (long)6398854, (long)301098788, "Calle 50 # 12 - 55", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "jheison@gmail.com"));
-//
-//    }
-    
-    @PostConstruct
-    public void initClientes(){
+    public ServicioGestionMock()
+    {
 
-       clientes = new ArrayList<Cliente>();
-       clientes.add(new Cliente(TipoDocumento.Cedula, (long)1115855, "David Martinez Salcedo", (long)6373383, (long)313318788, "Kr 54 # 169-84", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "david@gmail.com"));
-       clientes.add(new Cliente(TipoDocumento.Cedula, (long)1234567, "Alvaro Cordoba Torres", (long)6379854, (long)301318788, "Calle 170 # 84 - 25", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "alvaro@gmail.com"));
-       clientes.add(new Cliente(TipoDocumento.Tarjeta, (long)876543, "Jheison Rodriguez", (long)6398854, (long)301098788, "Calle 50 # 12 - 55", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "jheison@gmail.com"));
+        //Inicializa el arreglo de los clientes
+        clientes = new ArrayList<Cliente>();
+
+        //Agrega los clientes del sistema
+        clientes.add(new Cliente(TipoDocumento.Cedula, (long)1115855, "David Martinez Salcedo", (long)6373383, (long)313318788, "Kr 54 # 169-84", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "david@gmail.com"));
+        clientes.add(new Cliente(TipoDocumento.Cedula, (long)1234567, "Alvaro Cordoba Torres", (long)6379854, (long)301318788, "Calle 170 # 84 - 25", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "alvaro@gmail.com"));
+        clientes.add(new Cliente(TipoDocumento.Tarjeta, (long)876543, "Jheison Rodriguez", (long)6398854, (long)301098788, "Calle 50 # 12 - 55", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "jheison@gmail.com"));
 
     }
+    
+//    @PostConstruct
+//    public void initClientes(){
+//
+//       clientes = new ArrayList<Cliente>();
+//       clientes.add(new Cliente(TipoDocumento.Cedula, (long)1115855, "David Martinez Salcedo", (long)6373383, (long)313318788, "Kr 54 # 169-84", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "david@gmail.com"));
+//       clientes.add(new Cliente(TipoDocumento.Cedula, (long)1234567, "Alvaro Cordoba Torres", (long)6379854, (long)301318788, "Calle 170 # 84 - 25", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "alvaro@gmail.com"));
+//       clientes.add(new Cliente(TipoDocumento.Tarjeta, (long)876543, "Jheison Rodriguez", (long)6398854, (long)301098788, "Calle 50 # 12 - 55", "Bogota", "Bogota DC", "Colombia", "Ingeniero", "jheison@gmail.com"));
+//
+//    }
 
     //-----------------------------------------------------------
     // Métodos
