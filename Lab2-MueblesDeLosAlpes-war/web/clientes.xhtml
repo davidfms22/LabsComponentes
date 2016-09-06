@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/main-template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:param name="titulo" value="Modulo Clientes" />
+    <ui:define name="body">      
+
+        <p:growl autoUpdate="true" id="msj" />
+
+        <div>
+            <h1>Clientes</h1>
+        </div>
+        <div class="ui-grid-row">
+            <h:form  id="clientes" rendered="#{not empty clienteBean.clientes}">
+                <p:dataTable var="clienteTemporal" value="#{clienteBean.clientes}" emptyMessage="No existen clientes con los datos de busqueda" >
+
+                    <f:facet name="header">
+                        <p:outputPanel>
+                            <h:outputText value="Busqueda General:" />
+                            <p:inputText id="globalFilter" onkeyup="PF('clientes').filter()" style="width:150px"/>
+                        </p:outputPanel>
+                    </f:facet>
+
+                    <p:column filterBy="#{clienteTemporal.tipo_documento}" filterMatchMode="contains" headerText="Tipo Documento" >
+                        <h:outputText value="#{clienteTemporal.tipo_documento}" />
+                    </p:column>
+
+                    <p:column filterBy="#{clienteTemporal.numero_documento}" filterMatchMode="contains" headerText="Numero Documento">
+                        <h:outputText value="#{clienteTemporal.numero_documento}" />
+                    </p:column>
+
+                    <p:column filterBy="#{clienteTemporal.nombre_completo}" filterMatchMode="contains" headerText="Nombre Completo">
+                        <h:outputText value="#{clienteTemporal.nombre_completo}" />
+                    </p:column>
+
+                    <p:column filterBy="#{clienteTemporal.telefono_residencia}" filterMatchMode="contains" headerText="Telefono Residencia">
+                        <h:outputText value="#{clienteTemporal.telefono_residencia}" />
+                    </p:column>
+
+                    <p:column filterBy="#{clienteTemporal.celular}" filterMatchMode="contains" headerText="Celular">
+                        <h:outputText value="#{clienteTemporal.celular}" />
+                    </p:column>
+
+                    <p:column filterBy="#{clienteTemporal.direccion}" filterMatchMode="contains" headerText="Direccion">
+                        <h:outputText value="#{clienteTemporal.direccion}" />
+                    </p:column>
+
+                    <p:column filterBy="#{clienteTemporal.ciudad_residencia}" filterMatchMode="contains" headerText="Ciudad Residencia">
+                        <h:outputText value="#{clienteTemporal.ciudad_residencia}" />
+                    </p:column>
+
+                    <p:column filterBy="#{clienteTemporal.departamento}" filterMatchMode="contains" headerText="Departamento">
+                        <h:outputText value="#{clienteTemporal.departamento}" />
+                    </p:column>
+
+                    <p:column filterBy="#{clienteTemporal.pais}" filterMatchMode="contains" headerText="Pais">
+                        <h:outputText value="#{clienteTemporal.pais}" />
+                    </p:column>
+
+                    <p:column filterBy="#{clienteTemporal.profesion}" filterMatchMode="contains" headerText="Profesion">
+                        <h:outputText value="#{clienteTemporal.profesion}" />
+                    </p:column>
+
+                    <p:column filterBy="#{clienteTemporal.email}" filterMatchMode="contains" headerText="Correo Electronico">
+                        <h:outputText value="#{clienteTemporal.email}" />
+                    </p:column>
+
+                    <p:column headerText="Acciones">
+                        <p:commandButton id="editar" icon="icono_editar" title="Editar" actionListener="#{clienteBean.setCliente(clienteTemporal)}" onclick="PF('editarDatos').show();" update=":dglEditarDatos"/>
+                        <p:commandButton id="eliminar" icon="icono_eliminar" title="Eliminar" update="msj">
+                            <p:confirm header="Confirmacion" message="Desea Eliminar el cliente?" icon="ui-icon-alert" />
+                        </p:commandButton>
+
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Si" type="submit" actionListener="#{clienteBean.eliminarCliente(clienteTemporal)}" update=":clientes" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+
+                    </p:column>
+
+                </p:dataTable>
+
+            </h:form>
+            <h:panelGroup rendered="#{empty clienteBean.clientes}">
+                <p class="error">No existen Clientes Registrados</p>
+            </h:panelGroup>
+        </div>
+
+        <p:dialog header="Modificar Cliente" widgetVar="editarDatos" visible="#{facesContext.validationFailed}" >           
+            <h:form id="dglEditarDatos">               
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Tipo Documento" />
+                    <span class="error">*</span>
+                    <p:selectOneMenu id="console" value="#{clienteBean.cliente.tipo_documento}" required="true" label="Tipo Documento">
+                        <f:selectItems value="#{clienteBean.tiposDocumentos}" />
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Numero Documento" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.numero_documento}" required="true" label="Numero Documento"/>
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Nombre Completo" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.nombre_completo}" required="true" label="Nombre Completo" />  
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Telefono Residencia" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.telefono_residencia}" required="true" label="Telefono Residencia"/>               
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Celular" />
+                    <p:inputText value="#{clienteBean.cliente.celular}" label="Celular" />
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Direccion" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.direccion}" required="true" label="Direccion"  />                  
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Ciudad Residencia" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.ciudad_residencia}" required="true" label="Ciudad Residencia" />
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Departamento" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.departamento}" required="true" label="Departamento" />
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Pais" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.pais}" required="true" label="Pais" />
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Profesion" />
+                    <p:inputText value="#{clienteBean.cliente.profesion}" />                
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Correo Electronico" />
+                    <span class="error">*</span>
+                    <p:inputText id="hola" value="#{clienteBean.cliente.email}" required="true" label="Correo Electronico" />
+                </div>
+
+                <div class="ui-grid-row">
+                    <p:commandButton id="guardar" value="Guardar" ajax="false" actionListener="#{clienteBean.modificarCliente()}" update=":clientes"/>
+                    <p:commandButton id="cancelar" type="button" value="Cancelar" ajax="false" onclick="PF('editarDatos').hide();" />
+                </div>                
+            </h:form>
+        </p:dialog>       
+
+
+        <div>
+            <h:form>
+                <p:commandButton id="agregar" icon="icono_agregarUsuario" value="Agregar Cliente" actionListener="#{clienteBean.limpiarCliente()}" onclick="PF('wDatos').show();" update=":dglDatos"/>
+            </h:form> 
+        </div>
+
+        <p:dialog header="Agregar Cliente" widgetVar="wDatos" visible="#{facesContext.validationFailed}" >           
+            <h:form id="dglDatos">               
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Tipo Documento" />
+                    <span class="error">*</span>
+                    <p:selectOneMenu id="console" value="#{clienteBean.cliente.tipo_documento}" required="true" label="Tipo Documento">
+                        <f:selectItems value="#{clienteBean.tiposDocumentos}" />
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Numero Documento" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.numero_documento}" required="true" label="Numero Documento"/>
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Nombre Completo" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.nombre_completo}" required="true" label="Nombre Completo" />  
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Telefono Residencia" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.telefono_residencia}" required="true" label="Telefono Residencia"/>               
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Celular" />
+                    <p:inputText value="#{clienteBean.cliente.celular}" label="Celular" />
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Direccion" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.direccion}" required="true" label="Direccion"  />                  
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Ciudad Residencia" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.ciudad_residencia}" required="true" label="Ciudad Residencia" />
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Departamento" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.departamento}" required="true" label="Departamento" />
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Pais" />
+                    <span class="error">*</span>
+                    <p:inputText value="#{clienteBean.cliente.pais}" required="true" label="Pais" />
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Profesion" />
+                    <p:inputText value="#{clienteBean.cliente.profesion}" />                
+                </div>
+
+                <div class="ui-grid-row">
+                    <h:outputLabel value="Correo Electronico" />
+                    <span class="error">*</span>
+                    <p:inputText id="hola" value="#{clienteBean.cliente.email}" required="true" label="Correo Electronico" />
+                </div>
+
+                <div class="ui-grid-row">
+                    <p:commandButton id="guardar" value="Guardar" ajax="false" actionListener="#{clienteBean.agregarCliente()}" update=":clientes" />
+                    <p:commandButton id="cancelar" type="button" value="Cancelar" ajax="false" onclick="PF('wDatos').hide();" />
+                </div>                
+            </h:form>
+        </p:dialog>
+
+
+    </ui:define>
+</ui:composition>

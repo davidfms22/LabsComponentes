@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <h:outputStylesheet name="/css/mueblesheet.css"/>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <title>
+            Muebles Los Alpes - #{titulo}
+        </title>
+        <link rel="shortcut icon" href="resources/img/graphics/icon.png" type="image/x-icon" />
+    </h:head>
+    <h:body>
+
+
+        <div class="ui-grid ui-grid-responsive">
+            <center>
+                <div class="ui-grid-row">
+
+                    <div class="ui-grid-col-12">
+                        <h:graphicImage value="./resources/img/template/header.png" />
+                        <ui:insert name="body" />
+                        <h:graphicImage value="./resources/img/template/bottom.png" />
+                    </div>
+                </div>
+            </center>
+        </div>
+    </h:body>
+</html>

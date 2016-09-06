@@ -1,0 +1,29 @@
+/* Establece los atributos para el tipo de font, tamaño y color de TODOS los elementos de la página */
+body, table
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000000;
+}
+
+/* Estable el tamaño y otros atributos de los fonts para cualquiera de los 'form elements' no ICE. (nota ésto también afectará todo elemento ICE que sea renderizado por cualquiera de los siguientes tags HTML */
+input, textarea, select
+{
+}
+
+/* Estilo de errores */
+.error{
+    color:red;
+}
+
+.icono_editar{
+    background-image: url(../img/graphics/editar.png) !important;
+}
+
+.icono_eliminar{
+    background-image: url(../img/graphics/eliminar.png) !important;
+}
+
+.icono_agregarUsuario{
+    background-image: url(../img/graphics/adduser.png) !important;
+}

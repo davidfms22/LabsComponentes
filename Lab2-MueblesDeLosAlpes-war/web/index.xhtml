@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+    Document   : index
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/main-template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:param name="titulo" value="Control de Acceso" />
+    <ui:define name="body">
+        <h:form>
+            <h:panelGroup>
+                <f:facet name="header" >
+                    Administración del Catálogo
+                </f:facet>
+                <p:growl autoUpdate="true" id="msj" />
+                <h:panelGrid width="100px" columns="1" columnClasses="pnlGrdClass, pnlGrdClass, pnlGrdClassLong">
+                    <h:outputLabel for="TxtName" value="Nombre usuario" />
+                    <p:inputText id="TxtName" size="20" maxlength="20" value="#{loginBean.usuario}" required="true" label="Nombre Usuario">
+                        <f:validateLength minimum="1"/>
+                    </p:inputText>
+                   
+                    <h:outputLabel for="TxtPw" value="Contraseña" />
+                    <p:password id="TxtPw"  maxlength="20" size="20" value="#{loginBean.contraseña}" required="true" label="Contraseña">
+                        <f:validateLength minimum="6" maximum="15" />
+                    </p:password>
+                    
+                    <p:commandButton value="Ingresar" actionListener="#{loginBean.login}"  ajax="false" type="submit" />
+                </h:panelGrid>
+
+            </h:panelGroup>
+        </h:form>
+    </ui:define>
+</ui:composition>

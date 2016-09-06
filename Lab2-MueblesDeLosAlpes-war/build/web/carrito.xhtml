@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<ui:composition template="/main-template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:param name="titulo" value="Carrito de Compra" />
+    <ui:define name="body">
+        <p:growl autoUpdate="true" id="msj" />
+        <h:form id="compras">
+                <h1> 
+                    Carrito de Compras
+                </h1>
+            <p:dataTable id="muebles" var="compras" value="#{carritoCompra.compras}" rendered="#{not empty clienteBean.clientes}">
+                    <p:column headerText="Referencia">
+                        <h:outputText value="#{compras.referencia}" />
+                    </p:column>
+
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{compras.nombre}" />
+                    </p:column>
+
+                    <p:column headerText="Descripcion">
+                        <h:outputText value="#{compras.descripcion}" />
+                    </p:column>
+
+                    <p:column headerText="Tipo">
+                        <h:outputText value="#{compras.tipo}" />
+                    </p:column>
+
+                    <p:column headerText="Confirmar">
+                        <p:selectBooleanCheckbox value="#{compras.seleccion}" />
+                    </p:column>
+                </p:dataTable>
+            <div>
+                <p:commandButton value="Comprar" actionListener="#{carritoCompra.comprar()}" update=":compras" />
+                <p:commandButton value="Cancelar"  />
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
